@@ -1,0 +1,15 @@
+{
+    "name": "rohit/inpsyde",
+    "description":"",
+    "authors": [
+        {
+            "name": "rohit saha",
+            "email": "rohit_10029@rediffmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {"psr-4": {
+        "PluginInpsyde\\":"pluginInpsyde/"
+    }
+}
+}
