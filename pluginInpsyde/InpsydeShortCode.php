@@ -3,8 +3,8 @@ namespace PluginInpsyde;
 class InpsydeShortCode {
     function __construct()
     {
-        // add_action('rest_api_init',$this->RestEnd())
-        $d= plugin::view('myView');
+        // add_action('rest_api_init',$this->RestEnd());
+        Plugin::view("myView");
          
     }
     public function RestEnd()
