@@ -7,6 +7,7 @@
             "email": "rohit_10029@rediffmail.com"
         }
     ],
+    "type": "wordpress-plugin",
     "require": {},
     "autoload": {"psr-4": {
         "PluginInpsyde\\":"pluginInpsyde/"
