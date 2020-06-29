@@ -8,7 +8,7 @@ class InpsydeShortCode {
     }
     public function RestEnd()
     {
-           register_rest_route('inpsyde/v1',users,
+           register_rest_route('inpsyde/v1','users',
            [
                'methods'=>'GET',
                'callback'=>$this->RestPoint()
