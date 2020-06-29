@@ -3,9 +3,8 @@ namespace PluginInpsyde;
 class InpsydeShortCode {
     function __construct()
     {
-        // add_action('rest_api_init',$this->RestEnd());
-        Plugin::view("myView");
-         
+         add_action('rest_api_init',$this->RestEnd());
+        
     }
     public function RestEnd()
     {
@@ -18,7 +17,7 @@ class InpsydeShortCode {
     }
     public function RestPoint()
     {
-        Plugin::view( 'auto-complete');
+        Plugin::view("myView");
     }
 }
 class Plugin
