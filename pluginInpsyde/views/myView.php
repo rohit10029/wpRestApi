@@ -40,7 +40,7 @@
       var promise=function () {
             return new Promise(function(resolve, reject) {
                 $.ajax({
-                    url:"https://jsonplaceholder.typicode.com/users/",
+                    url:"<?= get_rest_url().'inpsyde/v1/users/'?>",
                     data:{},
                     method:"GET",
                     success: function(data) {
@@ -57,7 +57,7 @@
         var promiseLink=function (s) {
             return new Promise(function(resolve, reject) {
                 $.ajax({
-                    url:"https://jsonplaceholder.typicode.com/users/"+s,
+                    url:"<?= get_rest_url().'inpsyde/v1/users-detail/'?>"+s,
                     data:{},
                     method:"GET",
                     success: function(data) {
