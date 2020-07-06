@@ -10,6 +10,8 @@
  */
 
 require __DIR__ . '/vendor/autoload.php';
+
 use PluginInpsyde\InpsydeShortCode;
- new InpsydeShortCode();
+ $d=new InpsydeShortCode();
+ $d->init();
 ?>

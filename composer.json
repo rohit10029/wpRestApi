@@ -8,7 +8,9 @@
         }
     ],
     "type": "wordpress-plugin",
-    "require": {},
+    "require": {
+        "phpunit/phpunit": "^8.5"
+    },
     "autoload": {"psr-4": {
         "PluginInpsyde\\":"pluginInpsyde/"
     }

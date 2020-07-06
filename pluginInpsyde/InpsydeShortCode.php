@@ -1,11 +1,11 @@
 <?php
 namespace PluginInpsyde;
 class InpsydeShortCode {
-    function __construct()
+    function init()
     {
-         add_action('rest_api_init', array($this,'RestEnd'));
-         add_action('rest_api_init', array($this,'RestUserDetail'));
-         add_shortcode('rest_view', array($this,'restView'));
+          add_action('rest_api_init', array($this,'RestEnd'));
+          add_action('rest_api_init', array($this,'RestUserDetail'));
+          add_shortcode('rest_view', array($this,'restView'));
         
     }
     public function RestEnd()
@@ -47,7 +47,7 @@ curl_setopt($ch, CURLOPT_URL, $url);
 $result = curl_exec($ch); 
 curl_close($ch);
  
-return json_decode($result);
+return json_decode($result);  
 
     }
 
