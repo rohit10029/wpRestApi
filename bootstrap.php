@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: Inpsyde
- * Plugin URI: https://example.com/namespace-autoload-with-composer-demo
+ * Plugin URI: https://github.com/rohit10029/wpRestApi
  * Description: Inpsyde
  * Version: 0.1.0
  * Author: Rohit saha
- * Author URI: https://example.com
+ * Author URI: https://github.com/rohit10029/
  * License: GPL2
  */
 
