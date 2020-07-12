@@ -9,12 +9,14 @@ class PluginTest extends TestCase
    
     public function test1()
     {
+      // check return type ;
      // $func=$this->getMockBuilder("InpsydeShortCode")->setMethods(['RestPoint'])->getMock();
      $func=New InpsydeShortCode();
       $this->assertIsArray( $func->RestPoint());
     }
     public function test2()
     {
+      // check weather key exixt
       $func=New InpsydeShortCode();
      
       foreach($func->RestPoint() as $r)
