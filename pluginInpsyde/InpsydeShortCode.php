@@ -25,6 +25,7 @@ class InpsydeShortCode {
         );
     
         // Insert the post into the database
+        
         wp_insert_post( $my_post );
     }
     
