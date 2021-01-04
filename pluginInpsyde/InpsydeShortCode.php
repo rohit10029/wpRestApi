@@ -1,13 +1,34 @@
-<?php
+ <?php
 namespace PluginInpsyde;
 class InpsydeShortCode {
     function init()
     {
           add_action('rest_api_init', array($this,'RestEnd'));
           add_action('rest_api_init', array($this,'RestUserDetail'));
-          add_shortcode('rest_view', array($this,'restView'));
-        
+           add_shortcode('rest_view', array($this,'restView'));
+          $check_page_exist = get_page_by_title('custom-page', 'OBJECT', 'page');
+          if(empty($check_page_exist))
+          {
+             register_activation_hook(__FILE__, array($this,'add_my_custom_page'));
+         
+          }
     }
+   public function add_my_custom_page() {
+        // Create post object
+        $my_post = array(
+          'post_title'    => wp_strip_all_tags( 'custom-page' ),
+          'post_content'  =>"gggg",
+          'post_status'   => 'publish',
+          'post_author'   => 1,
+          'post_type'     => 'page',
+          'query_var'=>false
+        );
+    
+        // Insert the post into the database
+        wp_insert_post( $my_post );
+    }
+    
+   
     public function RestEnd()
     {
            register_rest_route('inpsyde/v1','/users/',
@@ -35,19 +56,9 @@ class InpsydeShortCode {
        $result="";
 $url = "https://jsonplaceholder.typicode.com/users/"; 
   
-// Initialize a CURL session. 
-$ch = curl_init();  
-  
-// Return Page contents. 
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
-curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,FALSE);
-//grab URL and pass it to the variable. 
-curl_setopt($ch, CURLOPT_URL, $url); 
-  
-$result = curl_exec($ch); 
-curl_close($ch);
+$result= wp_remote_retrieve_body(wp_remote_get($url));
  
-return json_decode($result);  
+return $result;  
 
     }
 
@@ -58,20 +69,9 @@ return json_decode($result);
        
        $result="";
 $url = "https://jsonplaceholder.typicode.com/users/".$s['s']; 
-  
-// Initialize a CURL session. 
-$ch = curl_init();  
-  
-// Return Page contents. 
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
-curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,FALSE);
-//grab URL and pass it to the variable. 
-curl_setopt($ch, CURLOPT_URL, $url); 
-  
-$result = curl_exec($ch); 
-curl_close($ch);
- 
-return json_decode($result);
+$result= wp_remote_retrieve_body(wp_remote_get($url));
+
+return $result;
 
     }
 
@@ -97,4 +97,5 @@ class Plugin
         include( $file );
     }
 }
-?>
+
+?> 
